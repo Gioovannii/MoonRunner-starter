@@ -39,9 +39,14 @@ class RunDetailsViewController: UIViewController {
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var paceLabel: UILabel!
   
+  var run: Run!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureView()
   }
   
-  
+  private func configureView() {
+    
+  }
 }
