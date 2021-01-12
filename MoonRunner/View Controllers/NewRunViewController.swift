@@ -32,6 +32,7 @@ import UIKit
 
 class NewRunViewController: UIViewController {
   
+  // MARK: - Outlets
   @IBOutlet weak var launchPromptStackView: UIStackView!
   @IBOutlet weak var dataStackView: UIStackView!
   @IBOutlet weak var startButton: UIButton!
@@ -40,6 +41,9 @@ class NewRunViewController: UIViewController {
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var paceLabel: UILabel!
   
+  private var run: Run?
+  
+  // MARK: - Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     dataStackView.isHidden = true
