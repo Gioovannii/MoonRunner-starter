@@ -51,11 +51,17 @@ class NewRunViewController: UIViewController {
   
   // MARK: - Methods
   private func startRun() {
-    
+    launchPromptStackView.isHidden = true
+    dataStackView.isHidden = false
+    startButton.isHidden = true
+    stopButton.isHidden = false
   }
   
   private func stopRun() {
-    
+    launchPromptStackView.isHidden = false
+    dataStackView.isHidden = true
+    startButton.isHidden = false
+    stopButton.isHidden = true
   }
   
   // MARK: - Actions
