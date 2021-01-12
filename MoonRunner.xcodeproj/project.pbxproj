@@ -19,6 +19,7 @@
 		18CF26EF1E80291E0097F88C /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CF26EE1E80291E0097F88C /* NewRunViewController.swift */; };
 		18CF26F11E80292C0097F88C /* RunDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CF26F01E80292C0097F88C /* RunDetailsViewController.swift */; };
 		7BE8B20E25AD5B29004FF0E5 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE8B20D25AD5B29004FF0E5 /* UnitExtensions.swift */; };
+		7BE8B21225AD863E004FF0E5 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE8B21125AD863E004FF0E5 /* FormatDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		18CF26EE1E80291E0097F88C /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		18CF26F01E80292C0097F88C /* RunDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunDetailsViewController.swift; sourceTree = "<group>"; };
 		7BE8B20D25AD5B29004FF0E5 /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
+		7BE8B21125AD863E004FF0E5 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +72,13 @@
 		18888DC11E7F0FA80038A3AF /* MoonRunner */ = {
 			isa = PBXGroup;
 			children = (
-				7BE8B20D25AD5B29004FF0E5 /* UnitExtensions.swift */,
-				18888DC21E7F0FA80038A3AF /* AppDelegate.swift */,
 				18CF26E81E8021390097F88C /* Storyboards and Assets */,
 				18CF26EB1E8028D40097F88C /* View Controllers */,
 				18888DDB1E80200C0038A3AF /* CoreData */,
 				18888DDA1E801FFB0038A3AF /* Supporting Files */,
+				7BE8B20D25AD5B29004FF0E5 /* UnitExtensions.swift */,
+				18888DC21E7F0FA80038A3AF /* AppDelegate.swift */,
+				7BE8B21125AD863E004FF0E5 /* FormatDisplay.swift */,
 			);
 			path = MoonRunner;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				7BE8B20E25AD5B29004FF0E5 /* UnitExtensions.swift in Sources */,
 				18CF26F11E80292C0097F88C /* RunDetailsViewController.swift in Sources */,
 				18888DC31E7F0FA80038A3AF /* AppDelegate.swift in Sources */,
+				7BE8B21225AD863E004FF0E5 /* FormatDisplay.swift in Sources */,
 				18CF26ED1E80290C0097F88C /* HomeViewController.swift in Sources */,
 				18350CE81E882A860054E1C6 /* StoryboardSupport.swift in Sources */,
 			);
