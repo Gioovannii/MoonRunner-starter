@@ -49,6 +49,16 @@ class NewRunViewController: UIViewController {
     dataStackView.isHidden = true
   }
   
+  // MARK: - Methods
+  private func startRun() {
+    
+  }
+  
+  private func stopRun() {
+    
+  }
+  
+  // MARK: - Actions
   @IBAction func startTapped() {
   }
   
