@@ -66,9 +66,25 @@ class NewRunViewController: UIViewController {
   
   // MARK: - Actions
   @IBAction func startTapped() {
+    startRun()
   }
   
   @IBAction func stopTapped() {
+    stopRun()
   }
   
+}
+
+extension NewRunViewController: SegueHandlerType {
+  enum SegueIdentifier: String {
+    case details = "RunDetailsViewController"
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segueIdentifier(for: segue) {
+    case .details:
+      guard let destination = segue.description as? RunDetailsViewController else { return }
+      destination.run = run
+    }
+  }
 }
