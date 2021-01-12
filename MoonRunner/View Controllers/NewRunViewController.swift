@@ -70,9 +70,18 @@ class NewRunViewController: UIViewController {
   }
   
   @IBAction func stopTapped() {
-    stopRun()
+    let alertController = UIAlertController(title: "End run?", message: "Do you wish to end your run?", preferredStyle: .actionSheet)
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+      self.stopRun()
+      self.performSegue(withIdentifier: .details, sender: nil)
+    })
+    alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
+      self.stopRun()
+      _ = self.navigationController?.popViewController(animated: true)
+    })
+    present(alertController, animated: true)
   }
-  
 }
 
 extension NewRunViewController: SegueHandlerType {
