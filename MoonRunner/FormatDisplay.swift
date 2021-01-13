@@ -41,4 +41,12 @@ class FormatDisplay {
     let formatter = MeasurementFormatter()
     return formatter.string(from: distance)
   }
+  
+  static func time(_ second: Int) -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute, .second]
+    formatter.unitsStyle = .positional
+    formatter.zeroFormattingBehavior = .pad
+    return formatter.string(from: TimeInterval(second))!
+  }
 }
