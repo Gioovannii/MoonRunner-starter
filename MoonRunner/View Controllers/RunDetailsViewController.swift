@@ -82,6 +82,15 @@ class RunDetailsViewController: UIViewController {
     let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3, longitudeDelta: (maxLong - minLong) * 1.3)
     return MKCoordinateRegion(center: center, span: span)
   }
+  
+  private func polyLine() -> MKPolyline {
+    guard let locations = run.locations else { return MKPolyline() }
+    let coords: [CLLocationCoordinate2D] = locations.map { location in
+      let location = location as! Location
+      return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+    }
+    return MKPolyline(coordinates: coords, count: coords.count)
+  }
 }
 
 
