@@ -29,6 +29,7 @@
  */
 
 import UIKit
+import CoreLocation
 
 class NewRunViewController: UIViewController {
   
