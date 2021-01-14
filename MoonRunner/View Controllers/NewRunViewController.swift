@@ -68,6 +68,14 @@ class NewRunViewController: UIViewController {
     dataStackView.isHidden = false
     startButton.isHidden = true
     stopButton.isHidden = false
+    seconds = 0
+    distance = Measurement(value: 0, unit: UnitLength.meters)
+    locationList.removeAll()
+    updateDisplay()
+    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+      self.eachSecond()
+    }
+    startLocationUpdates()
   }
   
   private func stopRun() {
