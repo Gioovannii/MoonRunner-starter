@@ -103,6 +103,12 @@ class NewRunViewController: UIViewController {
       _ = self.navigationController?.popViewController(animated: true)
     })
     present(alertController, animated: true)
+    
+    alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+      self.stopRun()
+      self.saveRun()
+      self.performSegue(withIdentifier: .details, sender: nil)
+    })
   }
   
   func eachSecond() {
