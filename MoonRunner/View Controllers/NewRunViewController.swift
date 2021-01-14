@@ -56,6 +56,12 @@ class NewRunViewController: UIViewController {
     dataStackView.isHidden = true
   }
   
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    timer?.invalidate()
+    locationManager.stopUpdatingLocation()
+  }
+  
   // MARK: - Methods
   private func startRun() {
     launchPromptStackView.isHidden = true
