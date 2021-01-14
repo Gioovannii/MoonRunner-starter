@@ -144,7 +144,7 @@ class NewRunViewController: UIViewController {
       locationObject.timestamp = location.timestamp
       locationObject.latitude = location.coordinate.latitude
       locationObject.longitude = location.coordinate.longitude
-      newRun.addToLocation(locationObject)
+      newRun.addToLocations(locationObject)
     }
     
     CoreDataStack.saveContext()
