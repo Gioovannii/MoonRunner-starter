@@ -95,6 +95,22 @@ class NewRunViewController: UIViewController {
     })
     present(alertController, animated: true)
   }
+  
+  func eachSecond() {
+    seconds += 1
+    updateDisplay()
+  }
+  
+  private func updateDisplay() {
+    let formattedDistance = FormatDisplay.distance(distance)
+    let formattedTime = FormatDisplay.time(seconds)
+    let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
+    
+    distanceLabel.text = "Distance: \(formattedDistance)"
+    timeLabel.text = "Time: \(formattedTime)"
+    paceLabel.text = "Pace: \(formattedPace)"
+
+  }
 }
 
 extension NewRunViewController: SegueHandlerType {
