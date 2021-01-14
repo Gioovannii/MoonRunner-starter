@@ -109,7 +109,13 @@ class NewRunViewController: UIViewController {
     distanceLabel.text = "Distance: \(formattedDistance)"
     timeLabel.text = "Time: \(formattedTime)"
     paceLabel.text = "Pace: \(formattedPace)"
-
+  }
+  
+  private func startLocationUpdates() {
+    locationManager.delegate = self
+    locationManager.activityType = .fitness
+    locationManager.distanceFilter = 10
+    locationManager.startUpdatingLocation()
   }
 }
 
