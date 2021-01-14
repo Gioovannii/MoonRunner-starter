@@ -58,6 +58,7 @@ class RunDetailsViewController: UIViewController {
     dateLabel.text = formattedDate
     timeLabel.text = "Time: \(formattedTime)"
     paceLabel.text = "Pace: \(formattedPace)"
+    loadMap()
   }
   
   private func mapRegion() -> MKCoordinateRegion? {
@@ -90,6 +91,19 @@ class RunDetailsViewController: UIViewController {
       return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
     }
     return MKPolyline(coordinates: coords, count: coords.count)
+  }
+  
+  private func loadMap() {
+    guard let locations = run.locations, locations.count > 0,
+          let region = mapRegion()
+    else { let alert = UIAlertController(title: "Error", message: "Sorry, this run has no locations saved", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+      present(alert, animated: true)
+      return
+    }
+    
+    mapView.setRegion(region, animated: true)
+    mapView.addOverlay(polyLine())
   }
 }
 
