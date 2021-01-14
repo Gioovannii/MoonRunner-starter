@@ -44,6 +44,12 @@ class NewRunViewController: UIViewController {
   
   private var run: Run?
   
+  private let locationManager = LocationManager.shared
+  private var seconds = 0
+  private var timer: Timer?
+  private var distance = Measurement(value: 0, unit: UnitLength.meters)
+  private var locationList: [CLLocation] = []
+  
   // MARK: - Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
