@@ -30,6 +30,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class NewRunViewController: UIViewController {
   
@@ -43,7 +44,6 @@ class NewRunViewController: UIViewController {
   @IBOutlet weak var paceLabel: UILabel!
   
   private var run: Run?
-  
   private let locationManager = LocationManager.shared
   private var seconds = 0
   private var timer: Timer?
@@ -60,6 +60,32 @@ class NewRunViewController: UIViewController {
     super.viewDidDisappear(animated)
     timer?.invalidate()
     locationManager.stopUpdatingLocation()
+  }
+  
+  // MARK: - Actions
+  @IBAction func startTapped() {
+    startRun()
+  }
+  
+  @IBAction func stopTapped() {
+    let alertController = UIAlertController(title: "End run?", message: "Do you wish to end your run?", preferredStyle: .actionSheet)
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+      self.stopRun()
+      self.saveRun()
+      self.performSegue(withIdentifier: .details, sender: nil)
+    })
+    alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
+      self.stopRun()
+      _ = self.navigationController?.popViewController(animated: true)
+    })
+    present(alertController, animated: true)
+    
+    alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+      self.stopRun()
+      self.saveRun()
+      self.performSegue(withIdentifier: .details, sender: nil)
+    })
   }
   
   // MARK: - Methods
@@ -84,31 +110,6 @@ class NewRunViewController: UIViewController {
     startButton.isHidden = false
     stopButton.isHidden = true
     locationManager.startUpdatingLocation()
-  }
-  
-  // MARK: - Actions
-  @IBAction func startTapped() {
-    startRun()
-  }
-  
-  @IBAction func stopTapped() {
-    let alertController = UIAlertController(title: "End run?", message: "Do you wish to end your run?", preferredStyle: .actionSheet)
-    alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-    alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-      self.stopRun()
-      self.performSegue(withIdentifier: .details, sender: nil)
-    })
-    alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
-      self.stopRun()
-      _ = self.navigationController?.popViewController(animated: true)
-    })
-    present(alertController, animated: true)
-    
-    alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-      self.stopRun()
-      self.saveRun()
-      self.performSegue(withIdentifier: .details, sender: nil)
-    })
   }
   
   func eachSecond() {
@@ -161,7 +162,7 @@ extension NewRunViewController: SegueHandlerType {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segueIdentifier(for: segue) {
     case .details:
-      guard let destination = segue.description as? RunDetailsViewController else { return }
+      guard let destination = segue.destination as? RunDetailsViewController else { return }
       destination.run = run
     }
   }
