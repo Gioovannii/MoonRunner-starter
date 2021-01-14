@@ -83,6 +83,7 @@ class NewRunViewController: UIViewController {
     dataStackView.isHidden = true
     startButton.isHidden = false
     stopButton.isHidden = true
+    locationManager.startUpdatingLocation()
   }
   
   // MARK: - Actions
@@ -124,6 +125,25 @@ class NewRunViewController: UIViewController {
     locationManager.activityType = .fitness
     locationManager.distanceFilter = 10
     locationManager.startUpdatingLocation()
+  }
+  
+  private func saveRun() {
+    let newRun = Run(context: CoreDataStack.context)
+    newRun.distance = distance.value
+    newRun.duration = Int16(seconds)
+    newRun.timestamp = Date()
+    
+    for location in locationList {
+      let locationObject = Location(context: CoreDataStack.context)
+      locationObject.timestamp = location.timestamp
+      locationObject.latitude = location.coordinate.latitude
+      locationObject.longitude = location.coordinate.longitude
+      newRun.addToLocation(locationObject)
+    }
+    
+    CoreDataStack.saveContext()
+    
+    run = newRun
   }
 }
 
