@@ -92,6 +92,8 @@ class NewRunViewController: UIViewController {
   
   // MARK: - Methods
   private func startRun() {
+    mapContainerView.isHidden = false
+    mapView.removeOverlays(mapView.overlays)
     launchPromptStackView.isHidden = true
     dataStackView.isHidden = false
     startButton.isHidden = true
