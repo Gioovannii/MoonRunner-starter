@@ -135,6 +135,24 @@
                                             <constraint firstItem="sP3-YI-w8v" firstAttribute="width" secondItem="XiM-Tb-dPF" secondAttribute="width" id="znb-nd-3QU"/>
                                         </constraints>
                                     </stackView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTX-Xz-4JM" userLabel="Map Container View">
+                                        <rect key="frame" x="74" y="370.33333333333331" width="240" height="0.0"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OWM-62-mz5">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="0.0"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="uBb-oE-18m" id="qTM-6w-yT4"/>
+                                                </connections>
+                                            </mapView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OWM-62-mz5" secondAttribute="trailing" id="SsE-Hp-gGq"/>
+                                            <constraint firstAttribute="bottom" secondItem="OWM-62-mz5" secondAttribute="bottom" priority="750" id="X8e-Uu-QGw"/>
+                                            <constraint firstItem="OWM-62-mz5" firstAttribute="leading" secondItem="fTX-Xz-4JM" secondAttribute="leading" id="iBM-Lv-F3G"/>
+                                            <constraint firstItem="OWM-62-mz5" firstAttribute="top" secondItem="fTX-Xz-4JM" secondAttribute="top" id="lvB-FD-CZX"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rO9-n6-3aN" userLabel="Button Stack View">
                                         <rect key="frame" x="30" y="380.33333333333337" width="328" height="360.33333333333337"/>
                                         <subviews>
@@ -165,6 +183,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rO9-n6-3aN" firstAttribute="width" secondItem="WML-Dt-Sv2" secondAttribute="width" constant="-60" id="oS0-pa-jfD"/>
+                                    <constraint firstItem="fTX-Xz-4JM" firstAttribute="width" secondItem="XiM-Tb-dPF" secondAttribute="width" multiplier="0.652174" id="sPp-PF-UYC"/>
                                     <constraint firstItem="XiM-Tb-dPF" firstAttribute="width" secondItem="WML-Dt-Sv2" secondAttribute="width" constant="-20" id="yas-oQ-ZQi"/>
                                 </constraints>
                             </stackView>
@@ -181,6 +200,8 @@
                         <outlet property="dataStackView" destination="sP3-YI-w8v" id="Eb8-4V-YAC"/>
                         <outlet property="distanceLabel" destination="Gp7-dS-cbT" id="S8x-2t-Gc6"/>
                         <outlet property="launchPromptStackView" destination="TEI-Oa-26B" id="Ir8-bm-Xdv"/>
+                        <outlet property="mapContainerView" destination="fTX-Xz-4JM" id="p6L-il-yVf"/>
+                        <outlet property="mapView" destination="OWM-62-mz5" id="gRu-iV-7AR"/>
                         <outlet property="paceLabel" destination="BHC-x5-Y74" id="Szg-lH-WhP"/>
                         <outlet property="startButton" destination="wHH-kB-UAe" id="ue4-yW-I2A"/>
                         <outlet property="stopButton" destination="y3O-Ns-MFS" id="Ijs-oa-iSz"/>
