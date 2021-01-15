@@ -156,6 +156,8 @@ class NewRunViewController: UIViewController {
   }
 }
 
+// MARK: - Navigation
+
 extension NewRunViewController: SegueHandlerType {
   enum SegueIdentifier: String {
     case details = "RunDetailsViewController"
@@ -169,6 +171,8 @@ extension NewRunViewController: SegueHandlerType {
     }
   }
 }
+
+// MARK: - Location Manager Delegate
 
 extension NewRunViewController: CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
