@@ -33,6 +33,8 @@ import MapKit
 
 class RunDetailsViewController: UIViewController {
   
+  // MARK: - Outlets
+
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var distanceLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
@@ -40,6 +42,8 @@ class RunDetailsViewController: UIViewController {
   @IBOutlet weak var paceLabel: UILabel!
   
   var run: Run!
+  
+  // MARK: - Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -107,6 +111,7 @@ class RunDetailsViewController: UIViewController {
   }
 }
 
+// MARK: - MAp View delegate
 
 extension RunDetailsViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
