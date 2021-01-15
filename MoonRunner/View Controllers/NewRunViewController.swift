@@ -109,6 +109,7 @@ class NewRunViewController: UIViewController {
   }
   
   private func stopRun() {
+    mapContainerView.isHidden = true
     launchPromptStackView.isHidden = false
     dataStackView.isHidden = true
     startButton.isHidden = false
