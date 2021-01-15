@@ -192,3 +192,16 @@ extension NewRunViewController: CLLocationManagerDelegate {
     }
   }
 }
+
+// MARK: - Map view Delegate
+
+extension NewRunViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    guard let polyline = overlay as? MKPolyline else { return MKOverlayRenderer(overlay: overlay) }
+    let renderer = MKPolylineRenderer(polyline: polyline)
+    renderer.strokeColor = .blue
+    renderer.lineWidth = 3
+    return renderer
+  }
+}
+
