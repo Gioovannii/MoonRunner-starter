@@ -42,7 +42,9 @@ class NewRunViewController: UIViewController {
   @IBOutlet weak var distanceLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var paceLabel: UILabel!
-  
+  @IBOutlet weak var mapView: MKMapView!
+  @IBOutlet weak var mapContainerView: UIView!
+    
   private var run: Run?
   private let locationManager = LocationManager.shared
   private var seconds = 0
