@@ -171,7 +171,7 @@ class RunDetailsViewController: UIViewController {
 
 extension RunDetailsViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-    guard let polyline = overlay as? MKPolyline else { return MKOverlayRenderer(overlay: overlay)}
+    guard let polyline = overlay as? MulticolorPolyline else { return MKOverlayRenderer(overlay: overlay)}
     let renderer = MKPolylineRenderer(polyline: polyline)
     renderer.strokeColor = .black
     renderer.lineWidth = 3
